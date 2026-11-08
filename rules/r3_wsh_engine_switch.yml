@@ -1,0 +1,26 @@
+title: Windows Script Host Executed with an Explicit Engine Switch
+id: 18b8ceda-abb3-4eb8-bc53-7b0de6034071
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+description: The //E switch makes WSH run any file as VBScript or JScript, regardless of extension. Rare in legitimate use.
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection_img:
+    Image|endswith:
+      - '\wscript.exe'
+      - '\cscript.exe'
+  selection_engine:
+    CommandLine|contains: '/e:'  # also matches //e:; contains is case-insensitive
+  condition: all of selection_*
+falsepositives:
+  - Rare. Check legacy admin scripts.
+level: high
+tags:
+  - attack.execution
+  - attack.t1059.007
+  - attack.t1059.005

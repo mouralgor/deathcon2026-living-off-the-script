@@ -1,0 +1,33 @@
+title: Script Host or Mshta Connecting to an External Address
+id: 70a07b9d-cee8-412d-ad44-138a895055c0
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+logsource:
+  product: windows
+  category: network_connection
+detection:
+  selection:
+    Image|endswith:
+      - '\mshta.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+    Initiated: 'true'
+  filter_internal:
+    DestinationIp|cidr:
+      - '10.0.0.0/8'
+      - '172.16.0.0/12'
+      - '192.168.0.0/16'
+      - '127.0.0.0/8'
+      - '169.254.0.0/16'
+  condition: selection and not filter_internal
+falsepositives:
+  - Legitimate HTA/WSH tools that call external vendor services. Allow-list by destination.
+level: high
+tags:
+  - attack.execution
+  - attack.t1218.005
+  - attack.t1059.005
+  - attack.t1059.007

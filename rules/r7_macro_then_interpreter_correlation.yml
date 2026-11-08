@@ -1,0 +1,60 @@
+title: Office VBA Engine Load
+id: dc7a33f5-bec1-4865-a4a6-5d157e117ebf
+name: office_vba_engine_load
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+logsource:
+  product: windows
+  category: image_load
+detection:
+  selection:
+    Image|endswith:
+      - '\WINWORD.EXE'
+      - '\EXCEL.EXE'
+      - '\POWERPNT.EXE'
+    ImageLoaded|endswith: '\VBE7.DLL'
+  condition: selection
+level: informational
+---
+title: Script Interpreter or Proxy Binary Started
+id: 374c6855-691f-4f9f-82e7-c2b137dedce8
+name: interpreter_started
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith:
+      - '\mshta.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+      - '\powershell.exe'
+      - '\cmd.exe'
+  condition: selection
+level: informational
+---
+title: Macro Execution Followed by Interpreter Launch
+id: 1826baac-ccbe-4f03-90f2-dc569296eee7
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+description: Lineage-independent. Fires when Office loads the VBA engine and an interpreter starts on the same host shortly after, whoever the parent is.
+correlation:
+  type: temporal_ordered
+  rules:
+    - office_vba_engine_load
+    - interpreter_started
+  group-by:
+    - Computer
+  timespan: 2m
+level: high

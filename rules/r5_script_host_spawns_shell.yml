@@ -1,0 +1,28 @@
+title: Script Host or Mshta Spawning PowerShell or Cmd
+id: 8774ecd3-a8d4-4833-a86b-8e634edd3f51
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    ParentImage|endswith:
+      - '\mshta.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+      - '\cmd.exe'
+  condition: selection
+falsepositives:
+  - Legacy logon and IT scripts that shell out. Baseline by CommandLine.
+level: high
+tags:
+  - attack.execution
+  - attack.t1059.001
+  - attack.t1218.005

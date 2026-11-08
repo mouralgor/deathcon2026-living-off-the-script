@@ -1,0 +1,5 @@
+title: "Living Off the Script"
+description: "Hunting T1059 in the Wild · a DEATHCon 2026 workshop by Igor Moura"
+theme: jekyll-theme-cayman
+exclude:
+  - README.md

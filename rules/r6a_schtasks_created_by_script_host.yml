@@ -1,0 +1,26 @@
+title: Scheduled Task Created by a Script Host
+id: 0d906e27-0a51-4a1c-906b-93ee2dcb7d69
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    ParentImage|endswith:
+      - '\mshta.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+      - '\powershell.exe'
+    Image|endswith: '\schtasks.exe'
+    CommandLine|windash|contains: '-create'
+  condition: selection
+falsepositives:
+  - IT provisioning HTAs and scripts (the CorpIT tool in the workshop lab does this). Allow-list by task name and action.
+level: medium
+tags:
+  - attack.persistence
+  - attack.t1053.005

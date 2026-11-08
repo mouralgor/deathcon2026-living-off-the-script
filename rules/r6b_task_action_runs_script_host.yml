@@ -1,0 +1,24 @@
+title: Scheduled Task Action Runs a Script Interpreter
+id: 88d6d503-74ed-433f-8111-0908d7bac56d
+status: experimental
+author: Igor Moura (DEATHCon 2026, Living Off the Script)
+date: 2026-11-08
+references:
+  - https://mouralgor.github.io/deathcon2026-living-off-the-script/
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4698
+    TaskContent|contains:
+      - 'wscript.exe'
+      - 'cscript.exe'
+      - 'mshta.exe'
+  condition: selection
+falsepositives:
+  - Known IT maintenance tasks. Allow-list by TaskName.
+level: medium
+tags:
+  - attack.persistence
+  - attack.t1053.005
