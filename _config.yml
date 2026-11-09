@@ -15,7 +15,7 @@ nav:
     url: /
   - title: Lab guide
     url: /lab-guide.html
-  - title: Rules
+  - title: Detection rules
     url: /rules/
   - title: Resources
     url: /resources.html

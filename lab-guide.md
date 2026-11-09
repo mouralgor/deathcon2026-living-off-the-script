@@ -1,23 +1,10 @@
 ---
 title: "Lab guide: Operation Late Alert"
 nav_title: Lab guide
-icon: map
-progress: true
-description: "How to approach every question in the lab room: which events to look at, which fields matter, and a query to start from. It doesn't give the answers: run the queries and read the results yourself."
-chips:
-  - text: No spoilers
-    kind: lime
-  - text: ES|QL and KQL
-  - text: Tasks 2 to 6
-actions:
-  - text: Open the lab room
-    url: https://tryhackme.com/jr/deathcon2026challenge
-    style: lime
-    icon: flag
+description: "How to approach every question in the lab room: which events to look at, which fields matter, and a query to start from. No answers: run the queries and read the results yourself."
 ---
 
 ## Before you start
-{: data-label="Briefing"}
 
 Each step has an **ES\|QL** query (switch Discover's query bar to ES\|QL and paste it) and a **KQL** query for Discover's default search bar. They return the same documents. With KQL, add the fields from the ES\|QL `KEEP` list as columns, and click a field in the sidebar to see its top values.
 
@@ -182,7 +169,6 @@ host.name : "sgc-ceo-lt01" and event.code : "4104" and powershell.file.script_bl
 ```
 
 ## After the lab
-{: data-label="Debrief"}
 
 - Run the [rebuilt detection rules](rules/) against the whole morning and note what else they catch.
 - Look beyond the CEO's laptop: did anyone else receive the same lure? Did the attacker's discovery reach the domain controller, and is it the only enumeration there?

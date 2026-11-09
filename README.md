@@ -16,14 +16,12 @@ The lab data is synthetic and every name, IP address and domain in the scenario 
 
 ## Site
 
-The site is plain Jekyll on GitHub Pages, with a custom TryHackMe-style layout instead of a theme:
+The site is plain Jekyll on GitHub Pages, with a small custom layout instead of a theme:
 
-- `_layouts/default.html`: top bar, room banner (title, description, chips and buttons from each page's front matter) and footer
-- `assets/css/room.css`: the styles
-- `assets/js/room.js`: turns each `##` section into a task card, builds the task list, the progress ticks on the lab guide, and the terminal-style code blocks with a copy button. The pages still read fine without it.
+- `_layouts/default.html`: top bar, sidebar with the pages, page title from front matter (`title`, `description`), previous/next links and footer
+- `assets/css/site.css`: the styles (dark, Geist and Geist Mono, red accent)
+- `assets/js/site.js`: lists the current page's sections in the sidebar and adds a copy button to code blocks. The pages read fine without it.
 
-A heading like `## Task 2: Triage the alert` shows as "Task 2". To label another section, add `{: data-label="Briefing"}` on the line after the heading.
+The page order in the sidebar comes from `nav` in `_config.yml`.
 
 To preview locally: `docker run --rm -p 4000:4000 -v "$PWD":/srv -w /srv ruby:3.3 bash -c "gem install github-pages webrick && jekyll serve -H 0.0.0.0"`, then open http://localhost:4000/deathcon2026-living-off-the-script/.
-
-Icons are adapted from [Feather](https://feathericons.com) (MIT license).

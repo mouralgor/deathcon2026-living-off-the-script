@@ -1,14 +1,6 @@
 ---
 title: Resources
-nav_title: Resources
-icon: book
 description: "The MITRE ATT&CK techniques in the lab's chain, threat reports that show the same primitives in real campaigns, public detection rules and tools."
-chips:
-  - text: 12 ATT&CK techniques
-    kind: lime
-  - text: Threat reports
-  - text: Sigma rules
-  - text: Tools
 ---
 
 ## MITRE ATT&CK techniques in the chain
