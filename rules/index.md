@@ -1,12 +1,20 @@
 ---
 title: Detection rules
+icon: shield
+description: "The rules rebuilt in the workshop, written in Sigma. They detect relationships and behavior, not the attacker's spelling: who started what, what connected where, and what happened right after a macro ran."
+chips:
+  - text: Sigma
+    kind: lime
+  - text: 8 rules
+  - text: Status experimental
+actions:
+  - text: Browse the YAML on GitHub
+    url: https://github.com/mouralgor/deathcon2026-living-off-the-script/tree/main/rules
+    style: outline
+    icon: code
 ---
 
-# Detection rules
-
-[← Back to the workshop page](../)
-
-These are the rules rebuilt in the workshop, written in [Sigma](https://sigmahq.io). They detect **relationships and behavior**, not the attacker's spelling: who started what, what connected where, and what happened right after a macro ran. All of them are `experimental`: test them against your own environment and baseline the false positives before you deploy them.
+<p class="note">All the rules are <code>experimental</code>: test them against your own environment and baseline the false positives before you deploy them.</p>
 
 ## The rebuilt rules
 

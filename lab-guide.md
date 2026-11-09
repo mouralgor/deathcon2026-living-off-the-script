@@ -1,16 +1,25 @@
 ---
-title: Lab guide (no spoilers)
+title: "Lab guide: Operation Late Alert"
+nav_title: Lab guide
+icon: map
+progress: true
+description: "How to approach every question in the lab room: which events to look at, which fields matter, and a query to start from. It doesn't give the answers: run the queries and read the results yourself."
+chips:
+  - text: No spoilers
+    kind: lime
+  - text: ES|QL and KQL
+  - text: Tasks 2 to 6
+actions:
+  - text: Open the lab room
+    url: https://tryhackme.com/jr/deathcon2026challenge
+    style: lime
+    icon: flag
 ---
 
-# Lab guide: Operation Late Alert
-
-[← Back to the workshop page](./)
-
-This guide explains how to approach every question in the [lab room](https://tryhackme.com/jr/deathcon2026challenge): which events to look at, which fields matter, and a query to start from. It doesn't give the answers: run the queries and read the results yourself.
+## Before you start
+{: data-label="Briefing"}
 
 Each step has an **ES\|QL** query (switch Discover's query bar to ES\|QL and paste it) and a **KQL** query for Discover's default search bar. They return the same documents. With KQL, add the fields from the ES\|QL `KEEP` list as columns, and click a field in the sidebar to see its top values.
-
-## Before you start
 
 - **Scope to the host.** Nine hosts share the `challenge_logs` index. Unless a question says otherwise, it's about the CEO's laptop: filter on `host.name == "sgc-ceo-lt01"` (ES\|QL) or `host.name : "sgc-ceo-lt01"` (KQL). The name is lowercase, and KQL matches it exactly.
 - **Check the time picker.** Discover filters every query by it, ES\|QL included. The data covers 26 October 2026, 07:30 to 10:05 UTC.
@@ -173,6 +182,7 @@ host.name : "sgc-ceo-lt01" and event.code : "4104" and powershell.file.script_bl
 ```
 
 ## After the lab
+{: data-label="Debrief"}
 
 - Run the [rebuilt detection rules](rules/) against the whole morning and note what else they catch.
 - Look beyond the CEO's laptop: did anyone else receive the same lure? Did the attacker's discovery reach the domain controller, and is it the only enumeration there?
