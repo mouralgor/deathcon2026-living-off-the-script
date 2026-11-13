@@ -1,6 +1,6 @@
 # Living Off the Script: Hunting T1059 in the Wild
 
-Workshop materials for **DEATHCon 2026** by [Igor Moura](https://github.com/mouralgor).
+Workshop materials for **DEATHCon 2026** by [Igor Moura](https://github.com/mouralgor) ([LinkedIn](https://www.linkedin.com/in/igor-moura-460967203/)).
 
 **Website:** https://mouralgor.github.io/deathcon2026-living-off-the-script/
 

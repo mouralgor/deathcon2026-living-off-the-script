@@ -82,4 +82,4 @@ CyberChef or a shell helps with decoding.
 
 ## About
 
-Workshop, lab and dataset by **Igor Moura** ([GitHub](https://github.com/mouralgor)) for [DEATHCon 2026](https://deathcon.io). The lab data is synthetic: it was generated for this workshop and contains no real organization's logs.
+Workshop, lab and dataset by **Igor Moura** ([GitHub](https://github.com/mouralgor) · [LinkedIn](https://www.linkedin.com/in/igor-moura-460967203/)) for [DEATHCon 2026](https://deathcon.io). The lab data is synthetic: it was generated for this workshop and contains no real organization's logs.
